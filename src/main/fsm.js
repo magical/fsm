@@ -397,3 +397,8 @@ function saveAsLaTeX() {
 	var texData = exporter.toLaTeX();
 	output(texData);
 }
+
+function saveAsJSON() {
+	var data = toJSON();
+	output(data);
+}

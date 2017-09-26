@@ -41,7 +41,7 @@ function restoreBackup() {
 	}
 }
 
-function saveBackup() {
+function toJSON() {
 	if(!localStorage || !JSON) {
 		return;
 	}
@@ -94,5 +94,14 @@ function saveBackup() {
 		}
 	}
 
-	localStorage['fsm'] = JSON.stringify(backup);
+	return JSON.stringify(backup);
+}
+
+function saveBackup() {
+	if(!localStorage || !JSON) {
+		return;
+	}
+
+	var backup = toJSON();
+	localStorage['fsm'] = backup;
 }
