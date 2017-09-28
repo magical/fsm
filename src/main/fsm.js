@@ -362,6 +362,7 @@ function crossBrowserRelativeMousePos(e) {
 }
 
 function output(text) {
+	hideInput();
 	var element = document.getElementById('output');
 	element.style.display = 'block';
 	element.value = text;
@@ -401,4 +402,27 @@ function saveAsLaTeX() {
 function saveAsJSON() {
 	var data = toJSON();
 	output(data);
+}
+
+function hideOutput() {
+	var element = document.getElementById('output');
+	element.style.display = 'none';
+}
+
+function hideInput() {
+	var element = document.getElementById('input');
+	element.style.display = 'none';
+}
+
+function showInput() {
+	hideOutput();
+	var element = document.getElementById('input');
+	element.style.display = 'block';
+	element.onchange = importJSON;
+}
+
+function importJSON() {
+	var element = document.getElementById('input');
+	var data = element.value;
+	restoreJSON(data);
 }
